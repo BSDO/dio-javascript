@@ -1,22 +1,60 @@
-
-const h1 = document.getElementById('btn');
-
-// // <!-- addEventListener funcao pra diverso opces -->
-// h1.addEventListener("click",function(){
-//    alert("Ola");
-// })
-
-
-// fetch api pra consultar api
-
-const offset = 0;
+const lista = document.getElementById('pokemons');
+const button =  document.getElementById('loadButton');
 const limit = 10;
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+let offset = 0;
+const maxRecords = 150;
+
+function converteListaPokemon(pokemon){
+	return `
+		<li class="pokemon ${pokemon.type}" >
+			<span class="number">${pokemon.id}</span>
+			<span class="name">${pokemon.name}</span>
+			
+			<div class="detalhes">
+			
+				<ol class="types">
+					${pokemon.types.map((type) => `<li  class="type ${type}">${type}</li>`).join('')} 
+				</ol>
+				<img src="${pokemon.urlfoto}" alt="${pokemon.name}">
+
+			</div>
+		
+		</li>
+	`
+}
 
 
-// Prommise => promessa de um resultado 
-fetch(url)
-   .then((response) => {return response.json()}) // transforma o retorno em json
-   .then((jsonBody) =>{console.log(jsonBody)}) // imprime o retorno de json
-   .catch(function (error){console.log(error) })
-   .finally(function (){console.log('Requisação concluida!')})
+function CarregarMaisItens(offset ,limit)
+{
+	pokeapi.getPokemons(offset,limit).then((pokemonList = []) =>{// imprime o retorno de json
+         const newhtml =  pokemonList.map((converteListaPokemon)).join('');
+		// forma mais simples de percorre o objeto
+		lista.innerHTML  += newhtml;
+	
+		
+	})
+	
+}
+
+CarregarMaisItens(offset,limit)
+
+button.addEventListener('click',() =>{
+	offset += limit
+
+	const qtdrecord = offset + limit
+
+	if(qtdrecord >= maxRecords)
+	{
+		const newLimit =  maxRecords - offset
+		CarregarMaisItens(offset,newLimit)
+
+		button.parentElement.removeChild(button)
+
+	}else
+	{
+		CarregarMaisItens(offset,limit)
+
+	}
+	
+
+})
