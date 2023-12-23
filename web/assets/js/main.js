@@ -4,6 +4,8 @@ const limit = 10;
 let offset = 0;
 const maxRecords = 150;
 
+
+// funcao para conerte os os dados de pokemons em listas
 function converteListaPokemon(pokemon){
 	return `
 		<li class="pokemon ${pokemon.type}" >
@@ -24,10 +26,12 @@ function converteListaPokemon(pokemon){
 }
 
 
+
+// funcao de carrega mais itens no click
 function CarregarMaisItens(offset ,limit)
 {
 	pokeapi.getPokemons(offset,limit).then((pokemonList = []) =>{// imprime o retorno de json
-         const newhtml =  pokemonList.map((converteListaPokemon)).join('');
+        const newhtml =  pokemonList.map((converteListaPokemon)).join('');
 		// forma mais simples de percorre o objeto
 		lista.innerHTML  += newhtml;
 	
@@ -38,6 +42,7 @@ function CarregarMaisItens(offset ,limit)
 
 CarregarMaisItens(offset,limit)
 
+// quando clicar no botao vai verifica ate a maximo permitido
 button.addEventListener('click',() =>{
 	offset += limit
 
