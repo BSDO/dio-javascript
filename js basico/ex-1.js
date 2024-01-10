@@ -7,15 +7,15 @@
 
  */
 
-const preco_combustivel = 3.29;
-let distancia_km = 70;
+const preco_combustivel = 5.20;
+let distancia_km = 279;
 const gastomedioporkm = 12;
-const reembolsa = 2.50;
+//const reembolsa = 2.50;
 
 
 
 const litrosConsumidos = distancia_km / gastomedioporkm;
-console.log("Litros gastos  " + litrosConsumidos.toFixed(3) + "  em : " + distancia_km + " km");
+console.log("Litros gastos  " + litrosConsumidos.toFixed(1) + "  em : " + distancia_km + " km");
 const gastos_totais = litrosConsumidos * preco_combustivel;
 // valores decima depois do . 2 casa e transforma o . em ,
 console.log("Valor Gasto Com Combustivel: R$ " + (gastos_totais.toFixed(2).replace('.', ',')));

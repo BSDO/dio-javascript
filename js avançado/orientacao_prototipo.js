@@ -1,2 +1,0 @@
-// Orientaçãoa a prototipo : 
-
