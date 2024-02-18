@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   
+
+}
+
+.main{
+    padding: 40px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    background-color: red;
+
+}
+
+
+header.header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    border:  2px solid rgb(88, 25, 25);
+    padding: 30px;
+
+  
+    
+}
+
+.header .informacao{
+    color: rgb(0, 0, 0);
+}
+
+div.div1{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.div1 h1{
+    color: rgb(0, 0, 0);
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+div  .div1 .img{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+
+}
+
+
+section.acordion{
+    display: flex;
+    flex-direction: column;
+    margin-top:  30px;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    border-radius:  25px;
+
+}
+
+.acordion.open,
+.acordion:hover{
+    background-color: #55569E;
+    border-color: #55569E;
+
+    transition: .25s;
+}
+
+.acordion .trigger{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: transparent;
+    color:#fff;
+    border: none;
+}   
+.acordion .trigger:hover{
+    cursor: pointer;
+}
+
+.acordion .trigger::after{
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('icones/arrow-top.svg');
+
+
+}
+
+.acordion.open .trigger::after{ 
+    transform: rotate(180deg);
+}
+
+.acordion .content{
+    display: none;
+}
+
+.acordion.open .content{
+    display: inline-block;
+}
+
+.content ul{
+    margin-left: 15px;
+    margin-bottom: 20px;
+    list-style: none;
+}

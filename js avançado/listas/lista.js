@@ -13,22 +13,22 @@
 
 // map método Array.map() normalmente é usado para aplicar algumas alterações aos elementos, seja multiplicando-os por um número específico, seja fazendo outras operações que você necessite utilizar em sua aplicação.
 
-// class Pessoa {
-//     constructor(nome,idade)
-//     {
-//         this.nome = nome
-//         this.idade = idade
-//     }
-// }
+class Pessoa {
+    constructor(nome,idade)
+    {
+        this.nome = nome
+        this.idade = idade
+    }
+}
 
-// const lista2 = [new Pessoa('Jose',30),new Pessoa('Pedro',20),new Pessoa('Breno',23),new Pessoa('Bruno',45)];
+const lista2 = [new Pessoa('Jose',30),new Pessoa('Pedro',20),new Pessoa('Breno',23),new Pessoa('Bruno',45)];
 
 
-// let nomelista = lista2.map((elemento) =>{
-//     return elemento.nome + ' tem ' + elemento.idade + ' anos.'
-// });
+let nomelista = lista2.map((elemento) =>{
+    return elemento.nome + ' tem ' + elemento.idade + ' anos.'
+});
 
-//  console.log(nomelista);
+ console.log(nomelista);
 
 
 // const listamultiplicada = lista.map((elemento) => elemento + 1);
